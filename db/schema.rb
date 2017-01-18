@@ -15,24 +15,25 @@ ActiveRecord::Schema.define(version: 20170118154822) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "movies", force: :cascade do |t|
-    t.string  "title"
-    t.integer "status"
-  end
-
-  create_table "movies_oscar_categories", id: false, force: :cascade do |t|
+  create_table "movie_oscar_categories", id: false, force: :cascade do |t|
     t.integer "movie_id",          null: false
     t.integer "oscar_category_id", null: false
-    t.index ["movie_id", "oscar_category_id"], name: "index_movies_oscar_categories_on_movie_id_and_oscar_category_id", using: :btree
-    t.index ["oscar_category_id", "movie_id"], name: "index_movies_oscar_categories_on_oscar_category_id_and_movie_id", using: :btree
+    t.index ["movie_id", "oscar_category_id"], name: "index_movie_oscar_categories_on_movie_id_and_oscar_category_id", using: :btree
+    t.index ["oscar_category_id", "movie_id"], name: "index_movie_oscar_categories_on_oscar_category_id_and_movie_id", using: :btree
   end
 
-  create_table "movies_theaters", id: false, force: :cascade do |t|
+  create_table "movie_theaters", id: false, force: :cascade do |t|
     t.integer "movie_id",                null: false
     t.integer "theater_id",              null: false
     t.integer "date_times", default: [],              array: true
-    t.index ["movie_id", "theater_id"], name: "index_movies_theaters_on_movie_id_and_theater_id", using: :btree
-    t.index ["theater_id", "movie_id"], name: "index_movies_theaters_on_theater_id_and_movie_id", using: :btree
+    t.index ["movie_id", "theater_id"], name: "index_movie_theaters_on_movie_id_and_theater_id", using: :btree
+    t.index ["theater_id", "movie_id"], name: "index_movie_theaters_on_theater_id_and_movie_id", using: :btree
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string  "title"
+    t.integer "status"
+    t.integer "oscar_year"
   end
 
   create_table "oscar_categories", force: :cascade do |t|

@@ -3,6 +3,7 @@ class CreateMovie < ActiveRecord::Migration[5.0]
     create_table :movies do |t|
       t.string :title
       t.integer :status
+      t.integer :oscar_year
     end
   end
 end
