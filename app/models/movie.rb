@@ -4,7 +4,7 @@ class Movie < ApplicationRecord
   has_many :movie_theaters
   has_many :theaters, through: :movie_theaters
 
-  enum status: { 'Not Seen' => 0, 'Seen' => 1 }
+  enum status: { 0 => 'Not Seen' , 1 => 'Seen' }
 
   def self.get_times_and_theaters(_name, _zipcode)
     # binding.pry
@@ -16,7 +16,7 @@ class Movie < ApplicationRecord
   end
 
   def update_status
-    self.status = status == 'Seen' ? 0 : 1
+    self.status = status == 0 ? 'Seen' : 'Not Seen'
     save!
   end
 end

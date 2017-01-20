@@ -1,5 +1,11 @@
 <h1>Movie List</h1>
 <div class="container col-md-12">
+  <select name="oscar_category">
+    <option value="">All</option>
+    <% OscarCategory.all.each do |cat| %>
+      <option value=cat.id><%= cat.name %></option>
+    <% end %>
+  </select>
   <% @movies.each_with_index do |movie, index| %>
     <div class="row col-md-6">
       <%= (index + 1).to_s + ".  " + movie.title %>
