@@ -1,5 +1,12 @@
-<% provide(:title, "All Movies") %>
 <h1>Movie List</h1>
-<div class="col-md-12">
-  
+<div class="container col-md-12">
+  <% @movies.each_with_index do |movie, index| %>
+    <div class="row col-md-6">
+      <%= (index + 1).to_s + ".  " + movie.title %>
+      <%= form_tag movie_seen_update_path, method: :put do -%>
+        <%= hidden_field_tag :movie_id, movie.id %>
+        <%= submit_tag 'Mark Seen'%>
+      <% end %>
+    </div>
+  <% end %>
 </div>

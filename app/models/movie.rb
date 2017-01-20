@@ -14,4 +14,9 @@ class Movie < ApplicationRecord
     # nokogiri_object = Nokogiri::HTML(html_data)
     # binding.pry
   end
+
+  def update_status
+    self.status = self.status == 'Seen' ? 0 : 1
+    self.save!
+  end
 end
