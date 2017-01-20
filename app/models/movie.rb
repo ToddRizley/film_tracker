@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
 
   enum status: { 'Not Seen' => 0, 'Seen' => 1 }
 
-  def self.get_times_and_theaters(name, zipcode)
+  def self.get_times_and_theaters(_name, _zipcode)
     # binding.pry
     # url = "https://www.google.com/#q=" + name.split.join("+") + "+" + zipcode.to_s
     # binding.pry
@@ -16,7 +16,7 @@ class Movie < ApplicationRecord
   end
 
   def update_status
-    self.status = self.status == 'Seen' ? 0 : 1
-    self.save!
+    self.status = status == 'Seen' ? 0 : 1
+    save!
   end
 end
