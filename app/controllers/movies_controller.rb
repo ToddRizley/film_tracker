@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
   def show
+    movie_id = params['id'].to_i
+    @movie = Movie.includes(:oscar_categories, :theaters).find(movie_id)
   end
 
   def update

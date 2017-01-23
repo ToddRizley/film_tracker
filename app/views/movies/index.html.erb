@@ -7,11 +7,16 @@
     <% end %>
   </select>
   <% @movies.each_with_index do |movie, index| %>
-    <div class="row col-md-6">
-      <%= (index + 1).to_s + ".  " + movie.title %>
+    <% class_name = movie.status == 0 ? 'not-seen' : 'seen' %>
+    <div class="row col-md-6 <%= class_name %>" >
+      <%= link_to (index + 1).to_s + ".  " + movie.title, "/movies/"+ movie.id.to_s %>
       <%= form_tag movie_seen_update_path, method: :put do -%>
         <%= hidden_field_tag :movie_id, movie.id %>
-        <%= submit_tag 'Mark Seen'%>
+        <% if movie.status == 0 %>
+          <%= submit_tag 'Mark Seen'%>
+        <% else %>
+          <%= submit_tag 'Mark Unseen'%>
+        <% end %>
       <% end %>
     </div>
   <% end %>
