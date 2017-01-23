@@ -1,11 +1,9 @@
 <h1>Movie List</h1>
 <div class="container col-md-12">
-  <select name="oscar_category">
-    <option value="">All</option>
-    <% OscarCategory.all.each do |cat| %>
-      <option value=cat.id><%= cat.name %></option>
-    <% end %>
-  </select>
+  <form class="filter_form">
+    <%= select("name", "category", OscarCategory.all.order(:name).collect(&:name)) %>
+    <input type="submit" value="Filter" />
+  </form>
   <% @movies.each_with_index do |movie, index| %>
     <% class_name = movie.status == 0 ? 'not-seen' : 'seen' %>
     <div class="row col-md-6 <%= class_name %>" >

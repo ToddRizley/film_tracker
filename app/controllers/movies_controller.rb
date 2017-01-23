@@ -13,6 +13,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all.includes(:oscar_categories, :theaters).order(:title)
+    @movies = Movie.filter_by_category(params)
   end
 end
