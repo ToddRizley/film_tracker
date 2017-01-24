@@ -22,7 +22,7 @@ class Movie < ApplicationRecord
 
   def self.filter_by_category(params)
     if params['name'].nil? || params['name']['category'] == 'All'
-      Movie.all.includes(:oscar_categories, :theaters).order(:title)
+       Movie.all.includes(:oscar_categories, :theaters).order(:title)
     else
       category = params['name']['category']
       OscarCategory.where(name: category).includes(:movies)[0].movies

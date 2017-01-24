@@ -10,9 +10,10 @@ class MoviesController < ApplicationController
      movie.update_status
 
      redirect_to movies_path
-   end		
+   end
 
    def index
      @movies = Movie.filter_by_category(params)
+     binding.pry
    end
  end
