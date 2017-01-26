@@ -1,7 +1,16 @@
 <h1>Add Movies for Each Oscar Category</h1>
 <div class="container col-md-12">
-  <%= form_tag add_movies_to_categories_path, :method => 'put' do |f| %>
+  <%= form_for :movies_to_add, url: update_categories_path, :method => 'put' do |f| %>
     <%= select("name", "category", @oscar_categories) %>
+    <%= f.text_field :movie1 %>
+    <%= f.text_field :movie2 %>
+    <%= f.text_field :movie3 %>
+    <%= f.text_field :movie4 %>
+    <%= f.text_field :movie5 %>
+    <%= f.text_field :movie6 %>
+    <%= f.text_field :movie7 %>
+    <%= f.text_field :movie8 %>
+    <%= f.text_field :movie9 %>
     <%= submit_tag 'Add Movies'%>
   <% end %>
 </div>

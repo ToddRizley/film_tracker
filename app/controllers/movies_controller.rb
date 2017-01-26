@@ -14,6 +14,5 @@ class MoviesController < ApplicationController
 
    def index
      @movies = Movie.filter_by_category(params)
-     binding.pry
    end
  end
