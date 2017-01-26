@@ -2,10 +2,11 @@ class OscarCategoriesController < ApplicationController
 
     def edit
       @oscar_categories = OscarCategory.where.not(name: "All").order(:name).collect(&:name)
-      redirect_to :action => 'oscar_categories#update'
+      # redirect_to :action => 'oscar_categories#update'
     end
 
-   def update
+   def add_movies_to_categories
+     binding.pry
      category_id = params['id'].to_i
      binding.pry
      category = OscarCategory.includes(:movies).find(category_id)
