@@ -24,6 +24,7 @@ class Movie < ApplicationRecord
   end
 
   def self.get_nominees
+    ## this method needs some love
     url = 'http://www.thewrap.com/oscar-nominations-2017-complete-list/'
     doc =  Nokogiri::HTML(open(url))
     slice = doc.css('p')[11..66]
@@ -31,7 +32,7 @@ class Movie < ApplicationRecord
       name = slice[index].text.split("Best")
       name = name[1].strip if name.length > 1
         movies = slice[index+1].text.split(/\r?\n/)
-        movies = movies.map { |line| line.gsub(/[[:punct:]]/, '.').split(".")[1] }
+        movies = movies.map { |line| line.gsub(/[[:punct:]]/, '.').split(".")[3] }
         binding.pry
         cat = OscarCategory.create(name: name ) if !OscarCategory.find_by(name: name)
         cat.add_movies_to_category(movies) if cat
