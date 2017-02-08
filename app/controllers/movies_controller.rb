@@ -14,5 +14,7 @@ class MoviesController < ApplicationController
 
    def index
      @movies = Movie.filter_by_category(params)
+     @seen_movies = @movies.select {|movie| movie.status == 0 }
+     @unseen_movies = @movies.select {|movie| movie.status == 1 }
    end
  end

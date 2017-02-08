@@ -1,21 +1,31 @@
-<h1>Movie List</h1>
+<h1>Oscar Nominated Movies</h1>
 <div class="container col-md-12">
   <form class="filter_form">
     <%= select("name", "category", OscarCategory.all.order(:name).collect(&:name)) %>
     <input type="submit" value="Filter" />
   </form>
-  <% @movies.each_with_index do |movie, index| %>
-    <% class_name = movie.status == 0 ? 'not-seen' : 'seen' %>
-    <div class="row col-md-6 <%= class_name %>" >
-      <%= link_to (index + 1).to_s + ".  " + movie.title, "/movies/"+ movie.id.to_s %>
-      <%= form_tag movie_seen_update_path, method: :put do -%>
-        <%= hidden_field_tag :movie_id, movie.id %>
-        <% if movie.status == 0 %>
-          <%= submit_tag 'Mark Seen'%>
-        <% else %>
-          <%= submit_tag 'Mark Unseen'%>
-        <% end %>
+  <div class='seen_movies col-md-6'>
+    <h2 class="row"> Movies Seen </h2>
+      <% @seen_movies.each_with_index do |movie, index| %>
+        <div class="row seen" >
+          <%= link_to movie.title, "/movies/"+ movie.id.to_s %>
+          <%= form_tag movie_seen_update_path, :class => 'mark-unseen-button', method: :put do %>
+            <%= hidden_field_tag :movie_id, movie.id %>
+            <%= submit_tag 'Mark Unseen'%>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
+  </div>
+  <div class='unseen_movies col-md-6'>
+    <h2 class="row"> Movies To See </h2>
+      <% @unseen_movies.each_with_index do |movie, index| %>
+        <div class="row unseen" >
+          <%= link_to movie.title, "/movies/"+ movie.id.to_s %>
+          <%= form_tag movie_seen_update_path, :class => 'mark-seen-button', method: :put do %>
+            <%= hidden_field_tag :movie_id, movie.id %>
+            <%= submit_tag 'Mark Seen'%>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
 </div>

@@ -49,4 +49,5 @@ class Movie < ApplicationRecord
       OscarCategory.where(name: category).includes(:movies)[0].movies
     end
   end
+  
 end
