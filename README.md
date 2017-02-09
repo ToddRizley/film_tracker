@@ -1,29 +1,10 @@
+#README
 
+Film Tracker is a small Rails app that I built to keep track of the Oscar Nominated movies I have seen and have yet to see. I am insane and see EVERY SINGLE NOMINATED FILM (usually around 60) so this is helpful for me to keep track of what I have or haven't seen!
 
-oscar_categories =[ "Picture",
-"Director",
-"Actor in a Leading Role",
-"Actor in a Supporting Role",
-"Actress in a Leading Role",
-"Actress in a Supporting Role",
-"Animated Feature",
-"Animated Short Film",
-"Cinematography",
-"Costume Design",
-"Documentary Feature",
-"Documentary Short Subject",
-"Film Editing",
-"Foreign Language Film",
-"Live Action Short Film",
-"Makeup and Hairstyling",
-"Original Score",
-"Original Song",
-"Production Design",
-"Sound Editing",
-"Sound Mixing",
-"Visual Effects",
-"Adapted Screenplay",
-"Original Screenplay"
-]
-
-oscar_categories.each { |oc| OscarCategory.create(name: oc) }
+##Technologies
+- Rails 5
+- PostgreSQL
+- Rspec/Capybara
+- SASS
+- Gems: Nokogiri

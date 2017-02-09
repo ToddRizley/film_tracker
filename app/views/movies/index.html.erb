@@ -2,7 +2,7 @@
 <div class="container col-md-12">
   <form class="filter_form">
     <%= select("name", "category", OscarCategory.all.order(:name).collect(&:name)) %>
-    <input type="submit" value="Filter" />
+    <input class="button category-filter" type="submit" value="Filter" />
   </form>
   <div class='seen_movies col-md-6'>
      <%= render partial: "partials/seen-movies", object: @seen_movies %>
