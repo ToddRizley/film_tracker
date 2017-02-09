@@ -1,0 +1,21 @@
+<%= link_to 'All Movies/', movies_path %><%=@movie.title%>
+
+<h1>Info and Movie Times</h1>
+<h2><%= @movie.title %></h2>
+<div class="container">
+  <ul>Theaters and Times
+    <% @movie.movie_theaters.each do |movie_theater| %>
+      <li>
+        <%= movie_theater.theater.name + ",  " + movie_theater.location + ", " %>
+        <%= "Showings Today: " + movie_theater.date_times %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="container">
+  <ul>Oscar Categories
+    <% @movie.oscar_categories.each do |oscar_cat| %>
+      <li><%= oscar_cat.name %></li>
+    <% end %>
+  </ul>
+</div>

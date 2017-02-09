@@ -1,0 +1,82 @@
+body {
+  background: url('http://orig06.deviantart.net/5312/f/2011/020/7/f/old_notepaper_texture_by_polkapebble-d37nxw3.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  font-family: 'Rokkitt', serif;
+  font-size: 18px;
+
+  .button {
+    opacity: .7;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 2.5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    // font-size: 16px;
+    margin: 4px 20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    &:hover {
+      background-color: #555555;
+      color: white;
+
+    }
+}
+
+  h1 {
+    display: block;
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 40px;
+
+  }
+  .container {
+    padding-bottom: 100px;
+    padding-top: 50px;
+
+    form.filter_form {
+      text-align: center;
+    }
+    h2 {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 40px;
+      border-bottom: 2px solid #555555;
+    }
+    .seen_movies {
+      margin-top: 10px;
+      float: left;
+      display: inline-block;
+      text-align: center;
+      padding-left: 12%;
+      .row {
+        text-align: left;
+        padding-left: 15%;
+        margin-bottom: 10px;
+        .mark-unseen-button {
+          display: inline-block;
+        }
+      }
+    }
+    .unseen_movies {
+      margin-top: 10px;
+      float: right;
+      display: inline-block;
+      text-align: center;
+      .row {
+        text-align: left;
+        padding-left: 15%;
+        margin-bottom: 10px;
+        .mark-seen-button {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
