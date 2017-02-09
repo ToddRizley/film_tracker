@@ -11,30 +11,43 @@ body {
     text-align: center;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 40px;
+    
   }
   .container {
     padding-bottom: 100px;
+    padding-top: 50px;
+
+    form.filter_form {
+      text-align: center;
+    }
+    h2 {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
     .seen_movies {
+      margin-top: 10px;
       float: left;
       display: inline-block;
       text-align: center;
+      padding-left: 12%;
       .row {
         text-align: left;
-        margin-left: 15%;
-        margin-top: 10px;
+        padding-left: 15%;
+        margin-bottom: 10px;
         .mark-unseen-button {
           display: inline-block;
         }
       }
     }
     .unseen_movies {
+      margin-top: 10px;
       float: right;
       display: inline-block;
       text-align: center;
       .row {
         text-align: left;
-        margin-left: 15%;
-        margin-top: 10px;
+        padding-left: 15%;
+        margin-bottom: 10px;
         .mark-seen-button {
           display: inline-block;
         }

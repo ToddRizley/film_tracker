@@ -1,0 +1,10 @@
+<h2> Movies Seen </h2>
+  <% @seen_movies.each_with_index do |movie, index| %>
+    <div class="row seen" >
+      <%= link_to (index + 1).to_s + ".  " +movie.title, "/movies/"+ movie.id.to_s %>
+      <%= form_tag movie_seen_update_path, :class => 'mark-unseen-button', method: :put do %>
+        <%= hidden_field_tag :movie_id, movie.id %>
+        <%= submit_tag 'Mark Unseen'%>
+      <% end %>
+    </div>
+  <% end %>

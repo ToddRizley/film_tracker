@@ -5,27 +5,9 @@
     <input type="submit" value="Filter" />
   </form>
   <div class='seen_movies col-md-6'>
-    <h2 class="row"> Movies Seen </h2>
-      <% @seen_movies.each_with_index do |movie, index| %>
-        <div class="row seen" >
-          <%= link_to movie.title, "/movies/"+ movie.id.to_s %>
-          <%= form_tag movie_seen_update_path, :class => 'mark-unseen-button', method: :put do %>
-            <%= hidden_field_tag :movie_id, movie.id %>
-            <%= submit_tag 'Mark Unseen'%>
-          <% end %>
-        </div>
-      <% end %>
+     <%= render partial: "partials/seen-movies", object: @seen_movies %>
   </div>
   <div class='unseen_movies col-md-6'>
-    <h2 class="row"> Movies To See </h2>
-      <% @unseen_movies.each_with_index do |movie, index| %>
-        <div class="row unseen" >
-          <%= link_to movie.title, "/movies/"+ movie.id.to_s %>
-          <%= form_tag movie_seen_update_path, :class => 'mark-seen-button', method: :put do %>
-            <%= hidden_field_tag :movie_id, movie.id %>
-            <%= submit_tag 'Mark Seen'%>
-          <% end %>
-        </div>
-      <% end %>
+    <%= render partial: "partials/unseen-movies", object: @unseen_movies %>
   </div>
 </div>
