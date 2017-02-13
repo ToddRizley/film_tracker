@@ -2,6 +2,9 @@ class OscarCategory < ApplicationRecord
   has_many :movie_oscar_categories
   has_many :movies, through: :movie_oscar_categories
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+
   def add_movies_to_category(movies)
     movie_titles = Movie.all.pluck(:title)
     movies.each do |movie_title|

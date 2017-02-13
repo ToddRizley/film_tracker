@@ -1,11 +1,13 @@
-require 'open-uri'
-require 'nokogiri'
-
 class Movie < ApplicationRecord
   has_many :movie_oscar_categories
   has_many :oscar_categories, through: :movie_oscar_categories
   has_many :movie_theaters
   has_many :theaters, through: :movie_theaters
+
+  validates :title, presence: true
+  validates :status, presence: true
+  validates :oscar_year, presence: true
+  validates :title, uniqueness: true
 
   enum status: { 0 => 'Not Seen', 1 => 'Seen' }
 
