@@ -5,21 +5,19 @@
   <br/>
   <h1>Info and Movie Times</h1>
   <h2><%= @movie.title %></h2>
-  <div class="container">
-    <ul>Theaters and Times
+  <div class="container now-playing col-xs-6">
+    Theaters and Times
       <% @movie.movie_theaters.each do |movie_theater| %>
-        <li>
+        <div class="theatr-info">
           <%= movie_theater.theater.name + ",  " + movie_theater.location + ", " %>
           <%= "Showings Today: " + movie_theater.date_times %>
-        </li>
+        </div>
       <% end %>
-    </ul>
   </div>
-  <div class="container">
-    <ul>Oscar Categories
+  <div class="container categories col-xs-6">
+    Oscar Categories
       <% @movie.oscar_categories.each do |oscar_cat| %>
-        <li><%= oscar_cat.name %></li>
+        <div class="oscar-category"><%= oscar_cat.name %></div>
       <% end %>
-    </ul>
   </div>
 </div>

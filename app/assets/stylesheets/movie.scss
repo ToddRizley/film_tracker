@@ -3,5 +3,20 @@ div.movie-info {
     background: none;
     text-align: left;
     padding-left: 16%;
+    display: inline-block;
+  }
+  h1, h2 {
+    clear: both;
+    text-align: center;
+  }
+
+  .container {
+    text-align: center;
+    font-size: 20px;
+    &.categories {
+      .oscar-category {
+        font-size: 16px;
+      }
+    }
   }
 }
